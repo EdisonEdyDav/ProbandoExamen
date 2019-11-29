@@ -1,0 +1,12 @@
+<resources>
+    <string name="app_name">PracticaUnoNavigation</string>
+    <string name="txtView_titulo">Mi Primer APP</string>
+    <string name="btn_titulo_Login">LOGIN</string>
+    <string name="btn_titulo_Guardar">GUARDAR</string>
+    <string name="btn_titulo_Buscar">BUSCAR</string>
+    <string name="btn_Autenticar">AUTENTICAR</string>
+    <string name="btn_titulo_PasarParametro">PASAR PARAMETRO</string>
+    <string name="btn_PasarParametro">PASAR PARAMETRO</string>
+    <string name="btn_EnviarDatos">Enviar Datos</string>
+
+</resources>
