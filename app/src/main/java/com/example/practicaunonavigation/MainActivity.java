@@ -1,103 +1,53 @@
 package com.example.practicaunonavigation;
 
 import android.content.Intent;
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
-import android.view.Menu;
-import android.view.MenuInflater;
-import android.view.MenuItem;
+import android.support.annotation.Nullable;
+import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.Button;
-import android.widget.Switch;
+import android.widget.EditText;
 
-public class MainActivity extends AppCompatActivity {
+public class MainActivity extends AppCompatActivity implements View.OnClickListener {
 
-    Button btnLogin,btnGuardar,btnBuscar,btnPasarParametro;
+    private EditText etUser;
+    private Button btnFollowers;
+    private Button btnIndividual;
+
 
     @Override
-    protected void onCreate(Bundle savedInstanceState) {
+    protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+        initViews();
+    }
 
 
-        btnLogin=(Button)findViewById(R.id.btnLogin);
-        btnGuardar=(Button) findViewById(R.id.btnGuardar);
-        btnBuscar=(Button) findViewById(R.id.btnBuscar);
-        btnPasarParametro=(Button) findViewById(R.id.btnPasarParametro);
 
-        btnLogin.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-
-                Intent intent =new Intent(MainActivity.this, LoginActivity.class);
-                startActivity(intent);
-            }
-        });
-
-        btnGuardar.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-
-                Intent intent =new Intent(MainActivity.this, GuardarActivity.class);
-                startActivity(intent);
-            }
-        });
-
-        btnBuscar.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-
-                Intent intent =new Intent(MainActivity.this, BuscarActivity.class);
-                startActivity(intent);
-            }
-        });
-
-
-        btnPasarParametro.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-
-                Intent intent =new Intent(MainActivity.this, PasarParametroActivity.class);
-                startActivity(intent);
-            }
-        });
+    private void initViews() {
+        etUser = findViewById(R.id.enter_user_edit_text);
+        btnFollowers = findViewById(R.id.enter_user_button);
+        btnIndividual = findViewById(R.id.enter_user_button_Individual);
+        btnFollowers.setOnClickListener(this);
+        btnIndividual.setOnClickListener(this);
     }
 
     @Override
-    public boolean onCreateOptionsMenu(Menu menu){
+    public void onClick(View v) {
+        if (v == btnFollowers) {
+            // TODO: Go to nex activity
+            Intent intent = new Intent(MainActivity.this, InfoUserActivity.class);
+            intent.putExtra("cedula", etUser.getText().toString());
+            startActivity(intent);
 
-        MenuInflater inflater = getMenuInflater();
-        inflater.inflate(R.menu.menu, menu);
+        }else if (v == btnIndividual){
 
-        return true;
-
-    }
-
-    public boolean onOptionsItemSelected(MenuItem item){
-
-        Intent intent;
-
-        switch (item.getItemId()){
-            case R.id.opcionLogin:
-                intent = new Intent (MainActivity.this, LoginActivity.class);
-                        startActivity(intent);
-                break;
-
-        }
-
-        switch (item.getItemId()){
-            case R.id.opcionRegistrar:
-                intent = new Intent (MainActivity.this, PasarParametroActivity.class);
-                startActivity(intent);
-                break;
+            Intent intent = new Intent(MainActivity.this, InfoActivity.class);
+            intent.putExtra("cedula", etUser.getText().toString());
+            startActivity(intent);
 
 
         }
-
-
-        return true;
     }
 }
-
-
 

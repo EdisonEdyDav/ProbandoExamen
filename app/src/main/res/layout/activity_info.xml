@@ -1,0 +1,101 @@
+<?xml version="1.0" encoding="utf-8"?>
+<TableLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".InfoActivity"
+    android:stretchColumns="*"
+    android:layout_margin="5dp"
+    >
+
+
+
+    <TableRow
+        android:gravity="center"
+        android:layout_margin="10dp">
+
+        <ImageView
+            android:id="@+id/imageViewProfile"
+            android:layout_width="50dp"
+            android:layout_height="100dp"
+            android:src="@mipmap/ic_launcher" />
+
+        <LinearLayout android:orientation="vertical"
+            android:gravity="center">
+
+            <TextView
+                android:id="@+id/labelNombre"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Nombre:"
+                />
+            <TextView
+                android:id="@+id/labelCiudad"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Ciudad:"
+                />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+            <TextView
+                android:id="@+id/textViewNombre"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="0"
+                />
+            <TextView
+                android:id="@+id/textViewCiudad"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="0"
+                />
+        </LinearLayout>
+
+    </TableRow>
+
+
+    <TableRow >
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="3dp"
+            android:background="#ffffff"
+            android:layout_span="3"/>
+    </TableRow>
+    <TableRow >
+
+
+        <TextView
+            android:id="@+id/labelFollowers"
+            android:text="ASIGNATURAS"
+            android:textStyle="bold"
+            android:textAlignment="center"
+            android:textSize="30dp"
+            android:layout_span="3"
+
+            />
+    </TableRow>
+    <TableRow>
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="2dp"
+            android:background="#ffffff"
+            android:layout_span="3"/>
+    </TableRow>
+
+
+    <TableRow
+        android:layout_margin="5dp"
+        android:layout_height="match_parent">
+
+        <android.support.v7.widget.RecyclerView
+            android:id="@+id/recyclerViewFollowers"
+            android:layout_height="match_parent"
+            android:layout_span="3"/>
+    </TableRow>
+
+
+</TableLayout>
